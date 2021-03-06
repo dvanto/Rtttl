@@ -25,7 +25,7 @@ class Rtttl
 public:
         Rtttl(int buzzerPin);
         void play(_FLASH_STRING songInPlay);
-        void updateMelody();
+        bool updateMelody();  // returns TRUE when is playing melody
         void stopTone();
 protected:
   #define NOTE_B0  31

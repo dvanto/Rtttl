@@ -179,7 +179,7 @@ void Rtttl::play(_FLASH_STRING songInPlay) {
         playMelody();
 }
 
-void Rtttl::updateMelody() {
+bool Rtttl::updateMelody() {
         if (melodyIdx > 0) {
                 unsigned long ts = millis();
                 if (ts - melodyTimestamp > nextDuration + 5) { // Add 5 to give tone time between calls (Seems to need it)
@@ -187,5 +187,7 @@ void Rtttl::updateMelody() {
                         melodyTimestamp = ts;
                         TimerFreeTone(_buzzerPin, nextFrequency, nextDuration);
                 }
+			return true;
         }
+		return false;
 }
